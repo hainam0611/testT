@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+     body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      background-color: #f7f9fc;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 12px;
+      background-color: #f2f5f8;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.3);
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+  <title>Add New Toy</title>
+</head>
+<body>
+  <div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="h4">Add New Toy</h1>
+      </div>
+      <div class="card-body">
+        <form action="/animal/add" method="post">
+          <div class="form-group">
+            <label class="h6 text-success" for="">Name</label>
+            <input class="form-control" type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label class="h6 text-success" for="">Brand Name</label>
+            <input class="form-control" type="text" name="brandName" required>
+          </div>
+          <div class="form-group">
+            <label class="h6 text-success" for="">Image</label>
+            <input class="form-control" type="text" name="image" required>
+          </div>
+          <div class="form-group">
+            <label class="h6 text-success" for="">Quantity</label>
+            <input class="form-control" type="number" name="quantity" required min="1" max="100"> 
+          </div>
+          <div class="form-group">
+            <label class="h6 text-success" for="">Price</label>
+            <input class="form-control" type="number" name="price" required>
+          </div>
+          <div class="form-group text-center">
+            <button class="btn btn-primary" type="submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

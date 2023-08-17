@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .table-success {
+      background-color: #c3e6cb;
+    }
+    .btn-center:hover {
+      background-color: rgba(228, 220, 220, 0.41);
+    }
+  </style>
+  <title>Toy List</title>
+</head>
+<body>
+  <div class="container mt-3 mb-3">
+    <a href="/lego" class="btn btn-center">
+      <h1>Toy List</h1> <br> <br>
+    </a>
+    <div class="row">
+      <div class="col-md-2">
+        <a href="/lego/add" class="btn btn-primary">ADD</a>
+      </div>
+      <div class="col-md-4">
+        <form action="/lego/search" method="post" class="d-flex">
+          <input class="form-control me-2" type="search" name="keyword" placeholder="Enter toy name" required>
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" onchange="window.location.href=this.value">
+          <option value="#">Select option to sort</option>
+          <option value="/lego/sort/price/asc">Sort by price ascending</option>
+          <option value="/lego/sort/price/desc">Sort by price descending</option>
+        </select>
+      </div>
+    </div>
+    <table class="table table-bordered table-success mt-3">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Brand Toy</th>
+          <th class="text-center">Image</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Menu</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each lego}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{brandName}}</td>
+            <td class="text-center">
+              <a href="/lego/legoDetail/{{_id}}">
+                <img src="{{image}}" width="100" height="100" alt="">
+              </a>
+            </td>
+            <td>{{quantity}}</td>
+            <td>{{price}}</td>
+            <td>
+              <a class="btn btn-warning" href="/lego/legoEdit/{{_id}}">Edit</a>
+              <a class="btn btn-danger" href="/lego/delete/{{_id}}" onclick="return confirm('Are you sure to delete?')">Delete</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

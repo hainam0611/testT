@@ -1,0 +1,32 @@
+<div class="container col-md-8 text-center mt-3 mb-3">
+    <div class="row">
+        <div class="col">
+            <img src="{{robot.image}}" alt="robot" width="300" height="400"> 
+            <h5 class="tex text-primary mt-3"> {{robot.name}}</h5>
+        </div>
+        {{!-Right Colum}}
+        <div class="col">
+            <h1 class="text text-danger">Toy Detail</h1>
+            <table class="table table-bordred">
+                <tr>
+                    <th>Price</th>
+                    <th>{{robot.price}}</th>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <th>{{robot.quantity}}</th>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <form action="/robot/robotOrder" method="post" >
+                        <input class="form-control mb-3" type="number" name="quantity" min="1" max="{{robot.quantity}}" required>
+                        <input type="hidden" name="id" value="{{robot._id}}">
+                         <input type="hidden" name="price" value="{{robot.price}}">
+                        <input class="btn btn-primary" type="submit" value="Add to cart">
+                        </form>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
